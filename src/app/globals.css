@@ -103,6 +103,7 @@ html, body {
   .stats-grid { grid-template-columns: repeat(2, 1fr) !important; }
   .standards-grid { grid-template-columns: repeat(2, 1fr) !important; }
   .hair-finder-grid { grid-template-columns: 1fr !important; }
+  .reviews-grid { grid-template-columns: 1fr !important; }
 }
 
 @media (max-width: 480px) {

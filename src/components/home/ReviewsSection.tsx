@@ -11,7 +11,7 @@ export default function ReviewsSection() {
         <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(32px,4vw,52px)", fontWeight: 300, color: "var(--fg)", margin: "0 0 48px" }}>
           What she <em style={{ fontStyle: "italic", color: "var(--gold)" }}>says</em>
         </h2>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: "24px" }}>
+        <div className="reviews-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: "24px" }}>
           {reviews.map((r, i) => (
             <div key={i} style={{ border: "1px solid var(--border)", padding: "32px" }}>
               <p style={{ fontFamily: "var(--font-display)", fontSize: "18px", fontStyle: "italic", color: "var(--fg-mid)", lineHeight: 1.6, margin: "0 0 24px" }}>&ldquo;{r.text}&rdquo;</p>

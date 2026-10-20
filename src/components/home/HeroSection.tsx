@@ -23,14 +23,30 @@ export default function HeroSection() {
         background: "var(--obsidian)",
       }}
     >
-      {/* Background video / fallback gradient */}
+      {/* Poster image — always visible, object-fit cover works reliably */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/images/hero-poster.jpg"
+        alt=""
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          inset: 0,
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          objectPosition: "center top",
+          opacity: 0.55,
+        }}
+      />
+
+      {/* Video overlays the poster once loaded */}
       <video
         ref={videoRef}
         autoPlay
         muted
         loop
         playsInline
-        poster="/images/hero-poster.jpg"
         style={{
           position: "absolute",
           inset: 0,
@@ -44,7 +60,7 @@ export default function HeroSection() {
         <source src="/videos/hero.mp4" type="video/mp4" />
       </video>
 
-      {/* Gradient overlay — dark bottom for text */}
+      {/* Gradient overlay */}
       <div
         style={{
           position: "absolute",
@@ -65,7 +81,6 @@ export default function HeroSection() {
           maxWidth: "900px",
         }}
       >
-        {/* Eyebrow */}
         <p
           className="section-eyebrow"
           style={{ marginBottom: "20px", animationDelay: "0.1s" }}
@@ -73,7 +88,6 @@ export default function HeroSection() {
           Raw Single Donor · Kingston, Jamaica
         </p>
 
-        {/* Headline */}
         <h1
           style={{
             fontFamily: "var(--font-display)",
@@ -102,7 +116,6 @@ export default function HeroSection() {
           Built For Her.
         </h1>
 
-        {/* Sub-copy */}
         <p
           style={{
             fontFamily: "var(--font-body)",
@@ -118,7 +131,6 @@ export default function HeroSection() {
           what she wants — and refuses to settle for less.
         </p>
 
-        {/* CTAs */}
         <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
           <a
             href="/shop"
