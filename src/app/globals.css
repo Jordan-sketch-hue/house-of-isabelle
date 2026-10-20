@@ -22,7 +22,7 @@
   --blush: #C9A48A;
   --smoke: #F7F4EF;
 
-  /* Legacy vars (keep for existing components until Phase 2) */
+  /* Legacy vars */
   --gold-old: #B8963E;
   --gold-light-old: #D4AF65;
   --ivory: #FAF8F4;
@@ -39,6 +39,12 @@
   /* Typography */
   --font-display: var(--font-cormorant), Georgia, serif;
   --font-body: var(--font-barlow), system-ui, sans-serif;
+}
+
+/* ── Overflow protection — prevents horizontal scroll on mobile ── */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 /* ── Keyframes ─────────────────────────────────────────── */
@@ -93,4 +99,12 @@
 /* ── Mobile utilities ─────────────────────────────────── */
 @media (max-width: 768px) {
   .scroll-indicator { display: none !important; }
+
+  .stats-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  .standards-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  .hair-finder-grid { grid-template-columns: 1fr !important; }
+}
+
+@media (max-width: 480px) {
+  .stats-grid { grid-template-columns: 1fr !important; }
 }

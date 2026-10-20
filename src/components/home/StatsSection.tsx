@@ -15,6 +15,7 @@ export default function StatsSection() {
       }}
     >
       <div
+        className="stats-grid"
         style={{
           maxWidth: "1280px",
           margin: "0 auto",
@@ -73,15 +74,6 @@ export default function StatsSection() {
           </div>
         ))}
       </div>
-
-      <style>{`
-        @media (max-width: 768px) {
-          .stats-grid { grid-template-columns: repeat(2, 1fr) !important; }
-        }
-        @media (max-width: 480px) {
-          .stats-grid { grid-template-columns: 1fr !important; }
-        }
-      `}</style>
     </section>
   );
 }
