@@ -1,3 +1,6 @@
+"use client";
+import ImageWithShimmer from "@/components/ui/ImageWithShimmer";
+
 export default function CategoryGrid() {
   const cats = [
     { label: "Bundles", sub: "Raw Vietnamese, Burmese, Indian", href: "/bundles", img: "/images/cat-bundles.jpg" },
@@ -15,9 +18,9 @@ export default function CategoryGrid() {
         </h2>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: "16px" }}>
           {cats.map((c) => (
-            <a key={c.href} href={c.href} style={{ textDecoration: "none", display: "block", position: "relative", aspectRatio: "3/4", overflow: "hidden", background: "var(--ebony)" }}>
-              <img src={c.img} alt={c.label} style={{ width: "100%", height: "100%", objectFit: "cover", transition: "transform 0.5s" }} />
-              <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(12,11,10,0.85) 0%, transparent 60%)", display: "flex", flexDirection: "column", justifyContent: "flex-end", padding: "24px" }}>
+            <a key={c.href} href={c.href} style={{ textDecoration: "none", display: "block", position: "relative", aspectRatio: "3/4", overflow: "hidden" }}>
+              <ImageWithShimmer src={c.img} alt={c.label} />
+              <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(12,11,10,0.85) 0%, transparent 60%)", display: "flex", flexDirection: "column", justifyContent: "flex-end", padding: "24px", zIndex: 3 }}>
                 <p style={{ fontFamily: "var(--font-display)", fontSize: "24px", fontWeight: 400, color: "var(--fg)", margin: "0 0 4px" }}>{c.label}</p>
                 <p style={{ fontFamily: "var(--font-body)", fontSize: "11px", letterSpacing: "0.1em", color: "var(--fg-muted)", margin: 0 }}>{c.sub}</p>
               </div>

@@ -1,3 +1,6 @@
+"use client";
+import ImageWithShimmer from "@/components/ui/ImageWithShimmer";
+
 export default function FounderSection() {
   return (
     <section
@@ -25,19 +28,11 @@ export default function FounderSection() {
             overflow: "hidden",
           }}
         >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <ImageWithShimmer
             src="/images/founder.jpg"
             alt="Isabel, founder of House of Isabel"
-            style={{
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-              objectPosition: "center top",
-              display: "block",
-            }}
+            style={{ objectPosition: "center top" }}
           />
-          {/* Subtle gold gradient at bottom of portrait */}
           <div
             style={{
               position: "absolute",
@@ -45,9 +40,9 @@ export default function FounderSection() {
               left: 0,
               right: 0,
               height: "120px",
-              background:
-                "linear-gradient(to top, rgba(12,11,10,0.7), transparent)",
+              background: "linear-gradient(to top, rgba(12,11,10,0.7), transparent)",
               pointerEvents: "none",
+              zIndex: 3,
             }}
           />
         </div>
@@ -123,7 +118,6 @@ export default function FounderSection() {
             hair that performs exactly as promised.
           </p>
 
-          {/* Signature */}
           <div
             style={{
               borderTop: "1px solid var(--border)",
@@ -163,7 +157,6 @@ export default function FounderSection() {
         </div>
       </div>
 
-      {/* Mobile layout — stack portrait on top */}
       <style>{`
         @media (max-width: 768px) {
           .founder-grid { grid-template-columns: 1fr !important; }
