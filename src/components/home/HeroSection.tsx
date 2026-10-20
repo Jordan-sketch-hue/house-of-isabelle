@@ -175,6 +175,7 @@ export default function HeroSection() {
 
       {/* Scroll indicator */}
       <div
+        className="scroll-indicator"
         style={{
           position: "absolute",
           bottom: "32px",

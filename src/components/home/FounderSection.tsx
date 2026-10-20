@@ -11,6 +11,7 @@ export default function FounderSection() {
       }}
     >
       <div
+        className="founder-grid"
         style={{
           maxWidth: "1280px",
           margin: "0 auto",
@@ -19,8 +20,8 @@ export default function FounderSection() {
           minHeight: "600px",
         }}
       >
-        {/* Portrait — full bleed left half */}
         <div
+          className="founder-portrait"
           style={{
             position: "relative",
             minHeight: "500px",
@@ -47,7 +48,6 @@ export default function FounderSection() {
           />
         </div>
 
-        {/* Copy — right half */}
         <div
           style={{
             padding: "clamp(48px, 6vw, 96px) clamp(40px, 5vw, 80px)",
@@ -158,6 +158,11 @@ export default function FounderSection() {
       </div>
 
       <style>{`
+        .founder-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          min-height: 600px;
+        }
         @media (max-width: 768px) {
           .founder-grid { grid-template-columns: 1fr !important; }
           .founder-portrait { min-height: 360px !important; }

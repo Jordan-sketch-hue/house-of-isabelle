@@ -16,18 +16,28 @@ export default function CategoryGrid() {
         <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(32px,4vw,52px)", fontWeight: 300, color: "var(--fg)", margin: "0 0 48px" }}>
           Shop by <em style={{ fontStyle: "italic", color: "var(--gold)" }}>collection</em>
         </h2>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: "16px" }}>
+        <div className="cat-grid">
           {cats.map((c) => (
             <a key={c.href} href={c.href} style={{ textDecoration: "none", display: "block", position: "relative", aspectRatio: "3/4", overflow: "hidden" }}>
               <ImageWithShimmer src={c.img} alt={c.label} />
-              <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(12,11,10,0.85) 0%, transparent 60%)", display: "flex", flexDirection: "column", justifyContent: "flex-end", padding: "24px", zIndex: 3 }}>
-                <p style={{ fontFamily: "var(--font-display)", fontSize: "24px", fontWeight: 400, color: "var(--fg)", margin: "0 0 4px" }}>{c.label}</p>
-                <p style={{ fontFamily: "var(--font-body)", fontSize: "11px", letterSpacing: "0.1em", color: "var(--fg-muted)", margin: 0 }}>{c.sub}</p>
+              <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(12,11,10,0.85) 0%, transparent 60%)", display: "flex", flexDirection: "column", justifyContent: "flex-end", padding: "20px", zIndex: 3 }}>
+                <p style={{ fontFamily: "var(--font-display)", fontSize: "clamp(18px,2.5vw,24px)", fontWeight: 400, color: "var(--fg)", margin: "0 0 4px", lineHeight: 1.1 }}>{c.label}</p>
+                <p style={{ fontFamily: "var(--font-body)", fontSize: "10px", letterSpacing: "0.08em", color: "var(--fg-muted)", margin: 0, lineHeight: 1.3 }}>{c.sub}</p>
               </div>
             </a>
           ))}
         </div>
       </div>
+      <style>{`
+        .cat-grid {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 16px;
+        }
+        @media (max-width: 768px) {
+          .cat-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+        }
+      `}</style>
     </section>
   );
 }
