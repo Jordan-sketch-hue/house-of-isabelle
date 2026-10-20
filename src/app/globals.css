@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+/* ── Design tokens ── House of Isabel 2026 Redesign ─── */
+:root {
+  /* Dark editorial palette */
+  --obsidian: #0C0B0A;
+  --ebony: #141210;
+  --ebony-2: #1C1917;
+  --border: #2A2520;
+  --border-light: #3A342E;
+
+  /* Text */
+  --fg: #F0EAE0;
+  --fg-mid: #A89880;
+  --fg-muted: #6A5C50;
+
+  /* Brand accents */
+  --gold: #C8A96A;
+  --gold-dim: #7A6030;
+  --gold-light: #E0C890;
+  --champagne: #E8D9B5;
+  --blush: #C9A48A;
+  --smoke: #F7F4EF;
+
+  /* Legacy vars (keep for existing components until Phase 2) */
+  --gold-old: #B8963E;
+  --gold-light-old: #D4AF65;
+  --ivory: #FAF8F4;
+  --cream: #F2EDE4;
+  --warm-white: #FDFCFA;
+  --linen: #EDE8DF;
+  --charcoal: #1A1A1A;
+  --black: #0D0D0D;
+  --text-dark: #1C1A17;
+  --text-mid: #5C5448;
+  --text-muted: #9C9084;
+  --border-old: #E0D9CE;
+
+  /* Typography */
+  --font-display: var(--font-cormorant), Georgia, serif;
+  --font-body: var(--font-inter), system-ui, sans-serif;
+}
+
+/* ── Keyframes ─────────────────────────────────────────── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes heroFade {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Utilities ─────────────────────────────────────────── */
+.animate-fade-in-up {
+  animation: fadeInUp 0.7s ease both;
+}
+
+.hero-animate {
+  animation: heroFade 1s ease both;
+}
+
+.marquee-inner {
+  animation: marquee 28s linear infinite;
+  will-change: transform;
+}
+
+/* ── Scrollbar ─────────────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--obsidian); }
+::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 2px; }
+
+/* ── Product card hover ────────────────────────────────── */
+.product-card:hover .product-image {
+  transform: scale(1.03);
+}
+
+/* ── Editorial section label ───────────────────────────── */
+.section-eyebrow {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
