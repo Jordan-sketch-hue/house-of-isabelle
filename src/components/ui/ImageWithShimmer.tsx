@@ -1,14 +1,16 @@
 "use client";
 import { useState } from "react";
+import NextImage from "next/image";
 
 interface Props {
   src: string;
   alt: string;
   style?: React.CSSProperties;
   containerStyle?: React.CSSProperties;
+  priority?: boolean;
 }
 
-export default function ImageWithShimmer({ src, alt, style, containerStyle }: Props) {
+export default function ImageWithShimmer({ src, alt, style, containerStyle, priority }: Props) {
   const [loaded, setLoaded] = useState(false);
 
   return (
@@ -22,6 +24,7 @@ export default function ImageWithShimmer({ src, alt, style, containerStyle }: Pr
         ...containerStyle,
       }}
     >
+      {/* Shimmer skeleton */}
       {!loaded && (
         <div
           style={{
@@ -36,18 +39,18 @@ export default function ImageWithShimmer({ src, alt, style, containerStyle }: Pr
         </div>
       )}
 
-      <img
+      <NextImage
         src={src}
         alt={alt}
+        fill
+        sizes="(max-width: 768px) 100vw, 50vw"
+        priority={priority}
         onLoad={() => setLoaded(true)}
         style={{
-          width: "100%",
-          height: "100%",
           objectFit: "cover",
-          display: "block",
+          objectPosition: "center top",
           opacity: loaded ? 1 : 0,
           transition: "opacity 0.6s ease",
-          position: "relative",
           zIndex: 2,
           ...style,
         }}

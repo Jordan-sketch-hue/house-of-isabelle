@@ -31,6 +31,7 @@ export default function FounderSection() {
         >
           <ImageWithShimmer
             src="/images/founder.jpg"
+            priority
             alt="Isabel, founder of House of Isabel"
             style={{ objectPosition: "center top" }}
           />

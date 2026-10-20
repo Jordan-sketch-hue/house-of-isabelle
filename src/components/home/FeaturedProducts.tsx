@@ -14,7 +14,7 @@ export default function FeaturedProducts() {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: "24px" }}>
           {products.slice(0, 3).map((p) => (
             <a key={p.id} href={`/shop/${p.slug}`} style={{ textDecoration: "none", display: "block" }}>
-              <div style={{ aspectRatio: "3/4", overflow: "hidden", marginBottom: "16px" }}>
+              <div style={{ aspectRatio: "3/4", overflow: "hidden", marginBottom: "16px", position: "relative" }}>
                 <ImageWithShimmer src={p.image} alt={p.name} />
               </div>
               <p style={{ fontFamily: "var(--font-display)", fontSize: "20px", fontWeight: 400, color: "var(--fg)", margin: "0 0 4px" }}>{p.name}</p>
