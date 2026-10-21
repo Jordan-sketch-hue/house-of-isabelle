@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import { useEffect, useRef } from "react";
 
 export default function HeroSection() {
@@ -23,7 +23,7 @@ export default function HeroSection() {
         background: "var(--obsidian)",
       }}
     >
-      {/* Poster image — always visible, object-fit cover works reliably */}
+      {/* Poster image â€” always visible, object-fit cover works reliably */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src="/images/hero-poster.jpg"
@@ -47,6 +47,7 @@ export default function HeroSection() {
         muted
         loop
         playsInline
+        preload="auto"
         style={{
           position: "absolute",
           inset: 0,
@@ -85,7 +86,7 @@ export default function HeroSection() {
           className="section-eyebrow"
           style={{ marginBottom: "20px", animationDelay: "0.1s" }}
         >
-          Raw Single Donor · Kingston, Jamaica
+          Raw Single Donor Â· Kingston, Jamaica
         </p>
 
         <h1
@@ -128,7 +129,7 @@ export default function HeroSection() {
           }}
         >
           Raw, responsibly sourced extensions for the woman who knows exactly
-          what she wants — and refuses to settle for less.
+          what she wants â€” and refuses to settle for less.
         </p>
 
         <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
@@ -223,3 +224,5 @@ export default function HeroSection() {
     </section>
   );
 }
+
+
