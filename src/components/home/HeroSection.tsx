@@ -1,19 +1,12 @@
 ﻿"use client";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 
 export default function HeroSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const posterRef = useRef<HTMLImageElement>(null);
-
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.play().catch(() => {});
-    }
-  }, []);
 
   function handleVideoReady() {
-    if (posterRef.current) {
-      posterRef.current.style.opacity = "0";
+    if (videoRef.current) {
+      videoRef.current.style.opacity = "0.55";
     }
   }
 
@@ -30,26 +23,7 @@ export default function HeroSection() {
         background: "var(--obsidian)",
       }}
     >
-      {/* Poster image â€” always visible, object-fit cover works reliably */}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        ref={posterRef}
-        src="/images/hero-poster.jpg"
-        alt=""
-        aria-hidden="true"
-        style={{
-          position: "absolute",
-          inset: 0,
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
-          objectPosition: "center top",
-          opacity: 0.55,
-          transition: "opacity 0.8s ease",
-        }}
-      />
-
-      {/* Video overlays the poster once loaded */}
+      {/* Video fades in from obsidian once ready — no ghost */}
       <video
         ref={videoRef}
         autoPlay
@@ -65,7 +39,8 @@ export default function HeroSection() {
           height: "100%",
           objectFit: "cover",
           objectPosition: "center top",
-          opacity: 0.55,
+          opacity: 0,
+          transition: "opacity 0.8s ease",
         }}
       >
         <source src="/videos/hero.mp4" type="video/mp4" />
@@ -96,7 +71,7 @@ export default function HeroSection() {
           className="section-eyebrow"
           style={{ marginBottom: "20px", animationDelay: "0.1s" }}
         >
-          Raw Single Donor Â· Kingston, Jamaica
+          Raw Single Donor · Kingston, Jamaica
         </p>
 
         <h1
@@ -139,7 +114,7 @@ export default function HeroSection() {
           }}
         >
           Raw, responsibly sourced extensions for the woman who knows exactly
-          what she wants â€” and refuses to settle for less.
+          what she wants — and refuses to settle for less.
         </p>
 
         <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
@@ -234,8 +209,3 @@ export default function HeroSection() {
     </section>
   );
 }
-
-
-
-
-
