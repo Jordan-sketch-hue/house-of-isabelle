@@ -4,3 +4,5 @@ node_modules/
 .env.local
 .env*.local
 *.log
+# Raw video clips — only hero.mp4 ships
+public/videos/clip-*.mp4
