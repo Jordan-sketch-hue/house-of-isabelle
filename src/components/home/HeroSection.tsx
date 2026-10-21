@@ -3,12 +3,19 @@ import { useEffect, useRef } from "react";
 
 export default function HeroSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const posterRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
     if (videoRef.current) {
       videoRef.current.play().catch(() => {});
     }
   }, []);
+
+  function handleVideoReady() {
+    if (posterRef.current) {
+      posterRef.current.style.opacity = "0";
+    }
+  }
 
   return (
     <section
@@ -26,6 +33,7 @@ export default function HeroSection() {
       {/* Poster image â€” always visible, object-fit cover works reliably */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
+        ref={posterRef}
         src="/images/hero-poster.jpg"
         alt=""
         aria-hidden="true"
@@ -37,6 +45,7 @@ export default function HeroSection() {
           objectFit: "cover",
           objectPosition: "center top",
           opacity: 0.55,
+          transition: "opacity 0.8s ease",
         }}
       />
 
@@ -48,6 +57,7 @@ export default function HeroSection() {
         loop
         playsInline
         preload="auto"
+        onCanPlay={handleVideoReady}
         style={{
           position: "absolute",
           inset: 0,
@@ -224,5 +234,8 @@ export default function HeroSection() {
     </section>
   );
 }
+
+
+
 
 
