@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 import { useRef } from "react";
 
 export default function HeroSection() {
@@ -71,7 +71,7 @@ export default function HeroSection() {
           className="section-eyebrow"
           style={{ marginBottom: "20px", animationDelay: "0.1s" }}
         >
-          Raw Single Donor · Kingston, Jamaica
+          Raw Single Donor {"\u00B7"} Kingston, Jamaica
         </p>
 
         <h1
@@ -114,7 +114,7 @@ export default function HeroSection() {
           }}
         >
           Raw, responsibly sourced extensions for the woman who knows exactly
-          what she wants — and refuses to settle for less.
+          what she wants {"\u2014"} and refuses to settle for less.
         </p>
 
         <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
